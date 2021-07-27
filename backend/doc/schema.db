@@ -1,0 +1,54 @@
+CREATE TABLE user(
+id integer primary key autoincrement not null,
+name text not null,
+password text not null
+);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE connection(
+id integer primary key autoincrement not null,
+host text not null,
+port integer not null,
+username text not null,
+password text not null,
+alias text not null,
+user_id integer not null
+);
+CREATE TABLE query
+(
+        id integer not null
+                constraint query_pk
+                        primary key autoincrement,
+        query_name text not null,
+        connection_id integer not null,
+        sqls text not null
+);
+CREATE TABLE IF NOT EXISTS "measurement"
+(
+        id integer not null
+                constraint measurement_pk
+                        primary key autoincrement,
+        measurement_name text not null,
+        description text,
+        host text
+);
+CREATE TABLE IF NOT EXISTS "device"
+(
+        id integer not null
+                constraint device_pk
+                        primary key autoincrement,
+        host text not null,
+        description text,
+        creator text,
+        create_time integer,
+        device_name text
+);
+CREATE TABLE IF NOT EXISTS "storage_group"
+(
+        id integer not null
+                primary key autoincrement,
+        description text,
+        creator text not null,
+        create_time integer not null,
+        group_name not null,
+        host text
+);

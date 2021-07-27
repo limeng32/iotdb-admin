@@ -5,3 +5,6 @@
 target/
 *.versionsBackup
 
+/.classpath
+/.project
+/.settings
